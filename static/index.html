@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="emit()">EMIT</button>
+
+
+<script src = "/socket.io/socket.io.js"></script>
+<script>
+	var socket = io();
+  let clientId = new Date().getTime();
+  
+  socket.on('test', function(data){
+    console.log(data);
+  });
+
+  function emit(){
+  	socket.emit('test', 'Sent event from client '+clientId);
+  }
+</script>
+</body>
+</html>
